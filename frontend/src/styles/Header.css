@@ -1,0 +1,24 @@
+.header {
+    background-color:#010101;
+    padding: 15px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .nav {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+  }
+  
+  .link {
+    color:  #7ef330;  /* Verde forte bonito */
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+  
+  .link:hover {
+    color: #a9ff6f; /* Verde mais escuro ao passar mouse */
+  }
+  
