@@ -18,6 +18,7 @@ app.get('/', (req, res) => {
 app.use('/api/alunos', alunosRoutes);
 app.use('/api/treinos', treinosRoutes);
 
+
 const PORT = 3001;
 app.listen(PORT, () => {
   console.log(`Servidor rodando na porta ${PORT}`);

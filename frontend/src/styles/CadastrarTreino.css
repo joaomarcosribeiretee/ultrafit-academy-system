@@ -1,61 +1,82 @@
 .treino-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #1c1b22;
-    padding: 40px 20px;
-    min-height: 90vh;
-  }
-  
-  .treino-title {
-    color: #7ef330;
-    font-size: 32px;
-    font-weight: bold;
-    margin-bottom: 30px;
-  }
-  
-  .treino-form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    width: 100%;
-    max-width: 400px;
-  }
-  
-  .treino-form input,
-  .treino-form textarea {
-    padding: 12px;
-    border-radius: 8px;
-    border: none;
-    background-color: #333333;
-    color: #ffffff;
-    font-size: 16px;
-  }
-  
-  .treino-form input::placeholder,
-  .treino-form textarea::placeholder {
-    color: #aaaaaa;
-  }
-  
-  .treino-form textarea {
-    resize: none;
-    height: 100px;
-  }
-  
-  .treino-form button {
-    background-color: #7ef330;
-    color: #010101;
-    font-weight: bold;
-    padding: 12px;
-    border-radius: 8px;
-    font-size: 18px;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-  }
-  
-  .treino-form button:hover {
-    background-color: #a9ff6f;
-    transform: scale(1.05);
-  }
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #1c1b22;
+  padding: 40px 20px;
+  min-height: 90vh;
+}
+
+.treino-title {
+  color: #7ef330;
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.treino-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.treino-form input,
+.treino-form textarea,
+.treino-form select {
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  background-color: #333333;
+  color: #ffffff;
+  font-size: 16px;
+}
+
+.treino-form input::placeholder,
+.treino-form textarea::placeholder {
+  color: #aaaaaa;
+}
+
+.treino-form textarea {
+  resize: none;
+  height: 100px;
+}
+
+.treino-form button {
+  background-color: #7ef330;
+  color: #010101;
+  font-weight: bold;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 18px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.treino-form button:hover {
+  background-color: #a9ff6f;
+  transform: scale(1.05);
+}
+
+/* Estilos específicos para o seletor de grupos musculares */
+.grupos-musculares-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.grupos-musculares-container label {
+  color: #ffffff;
+  font-size: 16px;
+}
+
+.grupos-musculares-select {
+  height: 120px;
+}
+
+.grupos-musculares-container small {
+  color: #aaaaaa;
+  font-size: 12px;
+}
