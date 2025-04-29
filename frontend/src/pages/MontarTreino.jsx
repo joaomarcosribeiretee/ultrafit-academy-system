@@ -89,42 +89,6 @@ function MontarTreino() {
     carregarExercicios();
   }, [grupoSelecionado, faseSelecionarTreino]);
 
-  // Carrega exercícios existentes para o treino selecionado
-  useEffect(() => {
-    const carregarExerciciosDoTreino = async () => {
-      if (treinoSelecionado && !faseSelecionarTreino) {
-        setCarregando(true);
-        setErro('');
-        try {
-          const response = await axios.get(
-            `http://localhost:3001/api/montar-treino/exercicios-treino/${treinoSelecionado}`
-          );
-          
-          // Formatar os exercícios existentes para o formato que estamos usando
-          const exerciciosFormatados = response.data.map(ex => ({
-            id: ex.treino_exercicio_id, // Usar o ID real do banco
-            exercicio_id: ex.exercicio_id,
-            nome: ex.nome_exercicio,
-            grupo_muscular: ex.grupo_muscular,
-            series: ex.series,
-            repeticoes: ex.repeticoes,
-            carga: ex.carga_kg,
-            observacoes: ex.observacoes || ''
-          }));
-          
-          setExerciciosAdicionados(exerciciosFormatados);
-        } catch (err) {
-          console.error('Erro ao carregar exercícios do treino:', err);
-          // Não mostrar erro para o usuário, apenas continuar com lista vazia
-        } finally {
-          setCarregando(false);
-        }
-      }
-    };
-    
-    carregarExerciciosDoTreino();
-  }, [treinoSelecionado, faseSelecionarTreino]);
-
   const iniciarMontagem = () => {
     if (!treinoSelecionado) {
       setErro('Selecione um treino para continuar');
@@ -187,23 +151,10 @@ function MontarTreino() {
     setErro('');
     
     try {
-      // Apenas enviar os novos exercícios (com ID temporário)
-      const novosExercicios = exerciciosAdicionados.filter(ex => 
-        typeof ex.id === 'number' && ex.id > 1000000000 // Assumindo que IDs temporários são grandes números de timestamp
-      );
-      
-      // Se não há novos exercícios, não precisamos fazer a requisição
-      if (novosExercicios.length === 0) {
-        setSucesso('Nenhum novo exercício para salvar.');
-        setTimeout(() => setSucesso(''), 2000);
-        setCarregando(false);
-        return;
-      }
-      
-      // Enviar apenas os novos exercícios para o backend
+      // Primeiro, atualiza o treino existente ou cria um novo
       const treinoData = {
         treino_id: treinoSelecionado,
-        exercicios: novosExercicios
+        exercicios: exerciciosAdicionados
       };
 
       await axios.post('http://localhost:3001/api/montar-treino/salvar', treinoData);
@@ -267,7 +218,7 @@ function MontarTreino() {
       ) : (
         <>
           <div className="cabecalho-montagem">
-            <h2>Montando: {treinos.find(t => t.treino_id === parseInt(treinoSelecionado))?.nome}</h2>
+            <h2>Montando: {treinos.find(t => t.treino_id === treinoSelecionado)?.nome}</h2>
             <button className="botao-secundario" onClick={voltarParaSelecao}>
               Voltar
             </button>
