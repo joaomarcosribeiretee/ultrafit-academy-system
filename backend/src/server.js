@@ -5,6 +5,7 @@ const app = express();
 // Importa os arquivos de rotas
 const alunosRoutes = require('./routes/alunos2');
 const treinosRoutes = require('./routes/treinos');
+const montarTreinoRoutes = require('./routes/MontarTreino');
 
 app.use(cors());
 app.use(express.json());
@@ -17,6 +18,7 @@ app.get('/', (req, res) => {
 // Usa as rotas
 app.use('/api/alunos', alunosRoutes);
 app.use('/api/treinos', treinosRoutes);
+app.use('/api/montar-treino', montarTreinoRoutes);
 
 
 const PORT = 3001;

@@ -59,24 +59,3 @@
   background-color: #a9ff6f;
   transform: scale(1.05);
 }
-
-/* Estilos específicos para o seletor de grupos musculares */
-.grupos-musculares-container {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.grupos-musculares-container label {
-  color: #ffffff;
-  font-size: 16px;
-}
-
-.grupos-musculares-select {
-  height: 120px;
-}
-
-.grupos-musculares-container small {
-  color: #aaaaaa;
-  font-size: 12px;
-}
