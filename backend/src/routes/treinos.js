@@ -2,6 +2,22 @@ const express = require('express');
 const router = express.Router();
 const db = require('../config/db');
 
+
+
+// Rota GET para listar todos os treinos
+router.get('/', (req, res) => {
+  const sql = 'SELECT treino_id, nome FROM treinos';
+  db.query(sql, (err, results) => {
+    if (err) {
+      console.error('Erro ao buscar treinos:', err);
+      return res.status(500).json({ message: 'Erro ao buscar treinos' });
+    }
+    res.json(results);
+  });
+});
+
+
+
 // Rota para cadastrar um novo treino
 router.post('/', (req, res) => {
   const { nome, descricao, professor } = req.body;

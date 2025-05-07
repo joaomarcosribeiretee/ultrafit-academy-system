@@ -6,6 +6,8 @@ const app = express();
 const alunosRoutes = require('./routes/alunos2');
 const treinosRoutes = require('./routes/treinos');
 const montarTreinoRoutes = require('./routes/MontarTreino');
+const vincularTreinoRoutes = require('./routes/vincularTreino');
+
 
 app.use(cors());
 app.use(express.json());
@@ -19,9 +21,14 @@ app.get('/', (req, res) => {
 app.use('/api/alunos', alunosRoutes);
 app.use('/api/treinos', treinosRoutes);
 app.use('/api/montar-treino', montarTreinoRoutes);
+app.use('/api/vincular-treino', vincularTreinoRoutes);
 
 
 const PORT = 3001;
 app.listen(PORT, () => {
   console.log(`Servidor rodando na porta ${PORT}`);
 });
+
+
+
+
