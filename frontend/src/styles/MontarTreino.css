@@ -1,104 +1,118 @@
 .montar-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    background-color: #1c1b22;
-    padding: 40px 20px;
-    min-height: 100vh;
-  }
-  
-  .montar-title {
-    color: #7ef330;
-    font-size: 32px;
-    font-weight: bold;
-    margin-bottom: 30px;
-    text-align: center;
-    width: 100%;
-    max-width: 500px;
-  }
-  
-  .selecionar-treino,
-  .montar-form,
-  .exercicios-adicionados {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    width: 100%;
-    max-width: 500px;
-  }
-  
-  select,
-  input,
-  textarea {
-    width: 100%;
-    max-width: 100%;
-    padding: 12px;
-    border-radius: 8px;
-    border: none;
-    background-color: #333333;
-    color: #ffffff;
-    font-size: 16px;
-    box-sizing: border-box;
-  }
-  
-  textarea {
-    resize: none;
-    height: 100px;
-  }
-  
-  .iniciar-button,
-  .montar-form button,
-  .salvar-button {
-    background-color: #7ef330;
-    color: #010101;
-    font-weight: bold;
-    padding: 12px;
-    border-radius: 8px;
-    font-size: 18px;
-    width: 100%;
-    max-width: 300px;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-  }
-  
-  .iniciar-button:hover,
-  .montar-form button:hover,
-  .salvar-button:hover {
-    background-color: #a9ff6f;
-    transform: scale(1.05);
-  }
-  
-  .exercicios-adicionados {
-    margin-top: 50px;
-    text-align: center;
-    color: #ffffff;
-  }
-  
-  .exercicios-adicionados ul {
-    list-style: none;
-    padding: 0;
-    margin-top: 20px;
-  }
-  
-  .exercicios-adicionados li {
-    background-color: #2a2a2a;
-    margin-bottom: 15px;
-    padding: 15px;
-    border-radius: 10px;
-    text-align: left;
-    width: 100%;
-  }
-  
-  .exercicios-adicionados li p {
-    margin: 5px 0 0 0;
-    font-style: italic;
-    color: #cccccc;
-  }
-  
-  .salvar-button {
-    margin-top: 30px;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #1c1b22;
+  padding: 40px 20px;
+  min-height: 100vh;
+}
+
+.montar-title {
+  color: #7ef330;
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 30px;
+  text-align: center;
+  width: 100%;
+  max-width: 500px;
+}
+
+.selecionar-treino,
+.montar-form,
+.exercicios-adicionados {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  max-width: 500px;
+}
+
+/* Ajuste para garantir que todos os campos tenham a mesma largura */
+.montar-form > * {
+  width: 100%;
+}
+
+select,
+input,
+textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  background-color: #333333;
+  color: #ffffff;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+/* Ajuste para os campos de Séries e Repetições ficarem lado a lado */
+.campos-linha {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+}
+
+.campos-linha > div {
+  flex: 1;
+}
+
+textarea {
+  resize: none;
+  height: 100px;
+}
+
+.iniciar-button,
+.montar-form button,
+.salvar-button {
+  background-color: #7ef330;
+  color: #010101;
+  font-weight: bold;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 18px;
+  width: 100%;
+  max-width: 300px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.iniciar-button:hover,
+.montar-form button:hover,
+.salvar-button:hover {
+  background-color: #a9ff6f;
+  transform: scale(1.05);
+}
+
+.exercicios-adicionados {
+  margin-top: 50px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.exercicios-adicionados ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.exercicios-adicionados li {
+  background-color: #2a2a2a;
+  margin-bottom: 15px;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: left;
+  width: 100%;
+}
+
+.exercicios-adicionados li p {
+  margin: 5px 0 0 0;
+  font-style: italic;
+  color: #cccccc;
+}
+
+.salvar-button {
+  margin-top: 30px;
+}

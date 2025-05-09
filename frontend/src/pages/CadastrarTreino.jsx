@@ -1,21 +1,40 @@
-import { useState } from 'react';
+import { useState} from 'react';
+import axios from 'axios';
 import '../styles/CadastrarTreino.css';
 
 function CadastrarTreino() {
   const [formData, setFormData] = useState({
     nome: '',
     descricao: '',
-    professor: ''
+    professor: '',
   });
 
+
+
+ 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Dados do treino:', formData);
-    // Aqui depois vamos enviar para o backend
+
+    // Envia os dados do formulário para o backend para criar o treino
+    axios.post('http://localhost:3001/api/treinos', formData)
+      .then(response => {
+        alert(response.data.message);  // Exibe a mensagem de sucesso retornada pelo backend
+        // Limpa o formulário após sucesso
+        setFormData({
+          nome: '',
+          descricao: '',
+          professor: '',
+        });
+      })
+      .catch(error => {
+        console.error('Erro ao cadastrar treino:', error);
+        alert('Erro ao cadastrar treino');
+      });
   };
 
   return (
@@ -36,6 +55,7 @@ function CadastrarTreino() {
           value={formData.descricao}
           onChange={handleChange}
         ></textarea>
+
         <input
           type="text"
           name="professor"
