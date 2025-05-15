@@ -56,22 +56,26 @@
     background-color: #a9ff6f;
     transform: scale(1.05);
   }
-  vinculo-table {
+  
+
+  .vinculo-table {
     width: 100%;
     max-width: 600px;
     margin: 20px auto;
     border-collapse: collapse;
     background-color: #222;
-    color: white;
+    color: white; 
   }
   
   .vinculo-table th, .vinculo-table td {
     border: 1px solid #444;
     padding: 10px;
     text-align: center;
+    color: white; 
   }
   
   .vinculo-table th {
     background-color: #333;
-    color: #7CFC00;
+    color: #7CFC00; /* verde para os títulos da tabela */
   }
+  
