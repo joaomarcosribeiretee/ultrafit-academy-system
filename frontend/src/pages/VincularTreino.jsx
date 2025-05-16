@@ -1,22 +1,63 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import '../styles/VincularTreino.css';
 
 function VincularTreino() {
   const [alunoSelecionado, setAlunoSelecionado] = useState('');
   const [treinoSelecionado, setTreinoSelecionado] = useState('');
+  const [dataInicio, setDataInicio] = useState('');
+  const [dataFim, setDataFim] = useState('');
+  const [alunos, setAlunos] = useState([]);
+  const [treinos, setTreinos] = useState([]);
+  const [vinculos, setVinculos] = useState([]);
 
-  // Simulando alunos e treinos cadastrados
-  const alunos = ['João Silva', 'Maria Souza', 'Pedro Santos'];
-  const treinos = ['Treino A - Peito e Tríceps', 'Treino B - Costas e Bíceps', 'Treino C - Pernas e Ombros'];
+  useEffect(() => {
+    fetch('http://localhost:3001/api/alunos')
+      .then(res => res.json())
+      .then(data => setAlunos(data));
+
+    fetch('http://localhost:3001/api/treinos')
+      .then(res => res.json())
+      .then(data => setTreinos(data));
+
+    carregarVinculos();
+  }, []);
+
+  const carregarVinculos = () => {
+    fetch('http://localhost:3001/api/vincular-treino/listar')
+      .then(res => res.json())
+      .then(data => setVinculos(data))
+      .catch(err => console.error(err));
+  };
 
   const vincularTreino = () => {
-    if (!alunoSelecionado || !treinoSelecionado) {
-      alert('Selecione um aluno e um treino!');
+    if (!alunoSelecionado || !treinoSelecionado || !dataInicio || !dataFim) {
+      alert('Preencha todos os campos!');
       return;
     }
 
-    console.log(`Vinculando treino "${treinoSelecionado}" ao aluno "${alunoSelecionado}"`);
-    // Aqui depois vamos fazer o POST para o backend
+    fetch('http://localhost:3001/api/vincular-treino/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        aluno_id: alunoSelecionado,
+        treino_id: treinoSelecionado,
+        data_inicio: dataInicio,
+        data_fim: dataFim,
+      }),
+    })
+      .then(res => res.json())
+      .then(() => {
+        alert('Treino vinculado com sucesso!');
+        setAlunoSelecionado('');
+        setTreinoSelecionado('');
+        setDataInicio('');
+        setDataFim('');
+        carregarVinculos();
+      })
+      .catch(err => {
+        console.error(err);
+        alert('Erro ao vincular treino');
+      });
   };
 
   return (
@@ -27,12 +68,11 @@ function VincularTreino() {
         <select
           value={alunoSelecionado}
           onChange={(e) => setAlunoSelecionado(e.target.value)}
-          required
         >
           <option value="">Selecione o Aluno</option>
-          {alunos.map((aluno, index) => (
-            <option key={index} value={aluno}>
-              {aluno}
+          {alunos.map((aluno) => (
+            <option key={aluno.aluno_id} value={aluno.aluno_id}>
+              {aluno.nome}
             </option>
           ))}
         </select>
@@ -40,18 +80,53 @@ function VincularTreino() {
         <select
           value={treinoSelecionado}
           onChange={(e) => setTreinoSelecionado(e.target.value)}
-          required
         >
           <option value="">Selecione o Treino</option>
-          {treinos.map((treino, index) => (
-            <option key={index} value={treino}>
-              {treino}
+          {treinos.map((treino) => (
+            <option key={treino.treino_id} value={treino.treino_id}>
+              {treino.nome}
             </option>
           ))}
         </select>
 
+        <input
+          type="date"
+          value={dataInicio}
+          onChange={(e) => setDataInicio(e.target.value)}
+          placeholder="Data de Início"
+        />
+
+        <input
+          type="date"
+          value={dataFim}
+          onChange={(e) => setDataFim(e.target.value)}
+          placeholder="Data de Fim"
+        />
+
         <button onClick={vincularTreino}>Vincular Treino</button>
       </div>
+
+      <h2 style={{ color: '#7CFC00', marginTop: '30px' }}>Treinos Vinculados</h2>
+      <table className="vinculo-table">
+        <thead>
+          <tr>
+            <th>Aluno</th>
+            <th>Treino</th>
+            <th>Data Início</th>
+            <th>Data Fim</th>
+          </tr>
+        </thead>
+        <tbody>
+          {vinculos.map((v, index) => (
+            <tr key={index}>
+              <td>{v.aluno}</td>
+              <td>{v.treino}</td>
+              <td>{v.data_inicio}</td>
+              <td>{v.data_fim}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 }
