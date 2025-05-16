@@ -55,8 +55,6 @@ router.post('/salvar', (req, res) => {
 
   console.log(`Salvando treino ID: ${treino_id} com ${exercicios.length} exercícios`);
 
- 
-
       // Preparar os valores para inserção em massa
       const values = exercicios.map(ex => [
         treino_id,
