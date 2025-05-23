@@ -16,6 +16,10 @@ function Treinos() {
         <button className="treinos-button" onClick={() => navigate('/montar-treino')}>
           Montar Treino
         </button>
+
+        <button className="treinos-button" onClick={() => navigate('/visualizar-treino')}>
+          Visualizar Treino
+        </button>
       </div>
     </div>
   );

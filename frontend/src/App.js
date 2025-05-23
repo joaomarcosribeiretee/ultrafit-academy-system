@@ -6,6 +6,7 @@ import CadastrarTreino from './pages/CadastrarTreino';
 import MontarTreino from './pages/MontarTreino';
 import Header from './components/Header';
 import VincularTreino from './pages/VincularTreino';
+import VisualizarTreino from './pages/VisualizarTreino';
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
         <Route path="/cadastrar-treino" element={<CadastrarTreino />} /> 
         <Route path="/montar-treino" element={<MontarTreino />} /> 
         <Route path="/vincular-treino" element={<VincularTreino />} />
+        <Route path="/visualizar-treino" element={<VisualizarTreino />} />
       </Routes>
     </Router>
   );
