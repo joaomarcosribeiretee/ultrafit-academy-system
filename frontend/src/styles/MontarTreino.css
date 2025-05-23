@@ -1,61 +1,45 @@
+/* Container principal */
 .montar-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
-  background-color: #1c1b22;
   padding: 40px 20px;
   min-height: 100vh;
+  background-color: #1c1b22;
 }
 
+/* Título principal */
 .montar-title {
   color: #7ef330;
   font-size: 32px;
   font-weight: bold;
   margin-bottom: 30px;
   text-align: center;
-  width: 100%;
-  max-width: 500px;
 }
 
-.selecionar-treino,
-.montar-form,
-.exercicios-adicionados {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
+/* Agrupamento de seleção e formulários */
+.form-group {
   width: 100%;
   max-width: 500px;
+  margin-bottom: 20px;
 }
 
-/* Ajuste para garantir que todos os campos tenham a mesma largura */
-.montar-form > * {
-  width: 100%;
+.form-group label {
+  display: block;
+  color: #ffffff;
+  margin-bottom: 8px;
 }
 
 select,
 input,
 textarea {
   width: 100%;
-  padding: 12px;
+  padding: 10px;
   border-radius: 8px;
   border: none;
   background-color: #333333;
   color: #ffffff;
   font-size: 16px;
-  box-sizing: border-box;
-}
-
-/* Ajuste para os campos de Séries e Repetições ficarem lado a lado */
-.campos-linha {
-  display: flex;
-  gap: 20px;
-  width: 100%;
-}
-
-.campos-linha > div {
-  flex: 1;
 }
 
 textarea {
@@ -63,15 +47,29 @@ textarea {
   height: 100px;
 }
 
-.iniciar-button,
-.montar-form button,
-.salvar-button {
+/* Linha de inputs (series, repetições, carga) */
+.form-row {
+  display: flex;
+  gap: 30px; /* Aumentei o espaçamento */
+  width: 100%;
+  max-width: 500px;
+  margin-bottom: 20px;
+}
+
+.form-row .form-group {
+  flex: 1;
+  margin-bottom: 0;
+}
+
+
+/* Botões gerais */
+button {
   background-color: #7ef330;
-  color: #010101;
+  color: #1c1b22;
   font-weight: bold;
   padding: 12px;
   border-radius: 8px;
-  font-size: 18px;
+  font-size: 16px;
   width: 100%;
   max-width: 300px;
   border: none;
@@ -79,40 +77,113 @@ textarea {
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.iniciar-button:hover,
-.montar-form button:hover,
-.salvar-button:hover {
+button:hover {
   background-color: #a9ff6f;
   transform: scale(1.05);
 }
 
-.exercicios-adicionados {
-  margin-top: 50px;
+/* Mensagens de erro e sucesso */
+.mensagem {
+  width: 100%;
+  max-width: 500px;
+  padding: 10px;
+  border-radius: 8px;
   text-align: center;
-  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+.mensagem.erro {
+  background-color: #ff4c4c;
+  color: #fff;
+}
+
+.mensagem.sucesso {
+  background-color: #7ef330;
+  color: #1c1b22;
+}
+
+/* Header da montagem */
+.cabecalho-montagem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 500px;
+  margin-bottom: 20px;
+}
+
+.cabecalho-montagem h2 {
+  color: #7ef330;
+}
+
+/* Card de exercícios adicionados */
+.exercicios-adicionados {
+  width: 100%;
+  max-width: 500px;
+  background-color: #2a2a2a;
+  padding: 20px;
+  border-radius: 12px;
+  margin-top: 30px;
+}
+
+.exercicios-adicionados h2 {
+  color: #7ef330;
+  margin-bottom: 15px;
 }
 
 .exercicios-adicionados ul {
-  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
   padding: 0;
-  margin-top: 20px;
 }
+
 
 .exercicios-adicionados li {
-  background-color: #2a2a2a;
-  margin-bottom: 15px;
-  padding: 15px;
-  border-radius: 10px;
-  text-align: left;
-  width: 100%;
+  background-color: #3a3a3a;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 10px;
+  position: relative;
 }
 
-.exercicios-adicionados li p {
-  margin: 5px 0 0 0;
+.exercicio-info {
+  color: #fff;
+}
+
+.exercicio-info strong {
+  color: #7ef330;
+}
+
+.observacao {
   font-style: italic;
-  color: #cccccc;
+  color: #ccc;
+  margin-top: 5px;
 }
 
-.salvar-button {
-  margin-top: 30px;
+/* Botão de remover (❌) */
+.botao-remover {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background-color: transparent;
+  color: #ff4c4c;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.3s;
+}
+
+.botao-remover:hover {
+  color: #ff1a1a;
+}
+
+
+/* Ações finais */
+.acoes {
+  margin-top: 20px;
+  width: 100%;
+  max-width: 500px;
 }
