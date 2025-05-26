@@ -5,10 +5,10 @@ import '../styles/CadastroAluno.css';
 function CadastroAluno() {
   const [formData, setFormData] = useState({
     nome: '',
-    cpf: '',
-    data_nascimento: '',
+    cpf: '', 
     telefone: '',
-    email: ''
+    email: '',
+    data_matricula: ''
   });
 
   const handleChange = (e) => {
@@ -27,9 +27,9 @@ function CadastroAluno() {
         setFormData({
           nome: '',
           cpf: '',
-          data_nascimento: '',
           telefone: '',
-          email: ''
+          email: '',
+          data_matricula: ''
         });
       })
       .catch(error => {
@@ -60,8 +60,8 @@ function CadastroAluno() {
         />
         <input
           type="date"
-          name="data_nascimento"
-          value={formData.data_nascimento}
+          name="data_matricula"
+          value={formData.data_matricula}
           onChange={handleChange}
           required
         />

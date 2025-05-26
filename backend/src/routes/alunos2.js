@@ -8,14 +8,14 @@ const db = require('../config/db');
 
 // Rota POST (cadastrar novo aluno)
 router.post('/', (req, res) => {
-  const { nome, cpf, data_nascimento, telefone, email } = req.body;
+  const { nome, cpf, telefone, email, data_matricula } = req.body;
 
   const sql = `
-    INSERT INTO alunos (nome, cpf, data_nascimento, telefone, email)
+    INSERT INTO alunos (nome, cpf, telefone, email, data_matricula)
     VALUES (?, ?, ?, ?, ?)
   `;
 
-  db.query(sql, [nome, cpf, data_nascimento, telefone, email], (err, result) => {
+  db.query(sql, [nome, cpf, telefone, email, data_matricula], (err, result) => {
     if (err) {
       console.error('Erro ao cadastrar aluno:', err);
       return res.status(500).send('Erro ao cadastrar aluno');

@@ -26,7 +26,6 @@ router.get('/:treinoId', (req, res) => {
       t.professor,
       e.exercicio_id,
       e.nome AS exercicio_nome,
-      e.descricao AS exercicio_descricao,
       gm.nome AS grupo_muscular,
       te.series,
       te.repeticoes,
