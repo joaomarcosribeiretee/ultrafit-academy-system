@@ -7,7 +7,6 @@ CREATE TABLE IF NOT EXISTS alunos (
     aluno_id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(100) NOT NULL,
     cpf VARCHAR(14) UNIQUE NOT NULL,
-    data_nascimento DATE,
     telefone VARCHAR(20),
     email VARCHAR(100),
     data_matricula DATE DEFAULT (CURRENT_DATE)
@@ -24,7 +23,6 @@ CREATE TABLE IF NOT EXISTS exercicios (
     exercicio_id INT AUTO_INCREMENT PRIMARY KEY,
 	grupo_muscular_id INT,
     nome VARCHAR(100) NOT NULL,
-    descricao TEXT,
 	FOREIGN KEY (grupo_muscular_id) REFERENCES grupos_musculares(grupo_muscular_id)
 );
 
@@ -77,66 +75,61 @@ INSERT INTO grupos_musculares (nome) VALUES
 
 
 
- INSERT INTO exercicios (nome, descricao, grupo_muscular_id) VALUES
- 
+ INSERT INTO exercicios (nome, grupo_muscular_id) VALUES
 -- Peito 
-('Supino Reto', 'Exercício básico para peitoral maior usando barra.', '1'),
-('Supino Inclinado', 'Trabalha a parte superior do peitoral com barra.','1'),
-('Supino Declinado', 'Enfatiza a parte inferior do peitoral.','1'),
-('Crucifixo com Halteres', 'Isolamento do peitoral, movimento de abertura.','1'),
-('Voador Máquina', 'Isolamento do peitoral em máquina.','1'),
-('Flexão de Braço', 'Exercício de peso corporal para peito e tríceps.','1'),
-
+('Supino Reto', '1'),
+('Supino Inclinado', '1'),
+('Supino Declinado', '1'),
+('Crucifixo com Halteres', '1'),
+('Voador Máquina', '1'),
+('Flexão de Braço', '1'),
 -- Costas
-('Remada Curvada', 'Trabalho de espessura das costas usando barra.','2'),
-('Remada Unilateral com Halteres', 'Exercício unilateral para dorsais.','2'),
-('Puxada Frontal Aberta', 'Puxada para dorsais na polia alta.','2'),
-('Puxada Atrás da Nuca', 'Variante de puxada para dorsais.','2'),
-('Remada Baixa Máquina', 'Exercício para parte central das costas.','2'),
-('Levantamento Terra', 'Exercício completo para costas, pernas e trapézio.','2'),
-
+('Remada Curvada', '2'),
+('Remada Unilateral com Halteres', '2'),
+('Puxada Frontal Aberta', '2'),
+('Puxada Atrás da Nuca', '2'),
+('Remada Baixa Máquina', '2'),
+('Levantamento Terra', '2'),
 -- Ombros
-('Desenvolvimento com Halteres', 'Pressão vertical para ombros.','3'),
-('Desenvolvimento Máquina', 'Variante segura de desenvolvimento de ombros.','3'),
-('Elevação Lateral', 'Isola o deltóide lateral.','3'),
-('Elevação Frontal', 'Foca no deltóide anterior.','3'),
-('Elevação Posterior (Crucifixo Inverso)', 'Foca no deltóide posterior.','3'),
-('Encolhimento de Ombros com Halteres', 'Trabalho direto para trapézio.','3'),
-
+('Desenvolvimento com Halteres', '3'),
+('Desenvolvimento Máquina', '3'),
+('Elevação Lateral', '3'),
+('Elevação Frontal', '3'),
+('Elevação Posterior (Crucifixo Inverso)', '3'),
+('Encolhimento de Ombros com Halteres', '3'),
 -- Bíceps
-('Rosca Direta com Barra', 'Exercício básico para bíceps.','4'),
-('Rosca Alternada', 'Rosca unilateral alternando braços.','4'),
-('Rosca Scott', 'Rosca concentrada para bíceps.','4'),
-('Rosca Martelo', 'Trabalha braquiorradial e antebraço.','4'),
-
+('Rosca Direta com Barra', '4'),
+('Rosca Alternada', '4'),
+('Rosca Scott', '4'),
+('Rosca Martelo', '4'),
 -- Tríceps
-('Tríceps Pulley', 'Empurrada para tríceps na polia.','5'),
-('Tríceps Testa', 'Extensão de tríceps deitado com barra.','5'),
-('Mergulho em Paralelas', 'Trabalho intenso para tríceps e peitoral.','5'),
-('Coice de Tríceps', 'Extensão de tríceps unilateral com halter.','5'),
-
+('Tríceps Pulley', '5'),
+('Tríceps Testa', '5'),
+('Mergulho em Paralelas', '5'),
+('Coice de Tríceps', '5'),
 -- Pernas (Quadríceps, Posterior, Glúteo)
-('Agachamento Livre', 'Exercício completo para quadríceps, glúteos e posteriores.','6'),
-('Leg Press 45', 'Pressão de pernas em máquina.','6'),
-('Cadeira Extensora', 'Isolamento de quadríceps.','6'),
-('Mesa Flexora', 'Isolamento de posteriores de coxa.','6'),
-('Stiff com Halteres', 'Alongamento e força para posteriores.','6'),
-('Avanço com Halteres', 'Exercício unilateral de quadríceps e glúteos.','6'),
-('Agachamento Búlgaro', 'Versão unilateral de agachamento para glúteos e quadríceps.','6'),
-
+('Agachamento Livre', '6'),
+('Leg Press 45', '6'),
+('Cadeira Extensora', '6'),
+('Mesa Flexora', '6'),
+('Stiff com Halteres', '6'),
+('Avanço com Halteres', '6'),
+('Agachamento Búlgaro', '6'),
 -- Panturrilha
-('Elevação de Panturrilhas em Pé', 'Trabalho de gastrocnêmio (panturrilha).','7'),
-('Elevação de Panturrilhas Sentado', 'Foco no sóleo (panturrilha interna).','7'),
-
+('Elevação de Panturrilhas em Pé', '7'),
+('Elevação de Panturrilhas Sentado', '7'),
 -- Abdômen
-('Abdominal Supra', 'Movimento básico para o abdômen superior.','8'),
-('Abdominal Infra', 'Foco na parte inferior do abdômen.','8'),
-('Prancha', 'Exercício isométrico para o core.','8'),
-('Abdominal Oblíquo', 'Foco nas laterais do abdômen.','8'),
-('Abdominal na Polia', 'Exercício com carga para abdômen em polia alta.','8'),
-
+('Abdominal Supra', '8'),
+('Abdominal Infra', '8'),
+('Prancha', '8'),
+('Abdominal Oblíquo', '8'),
+('Abdominal na Polia', '8'),
 -- Antebraço
-('Rosca de Punho', 'Flexão de punho para fortalecer antebraços.','9'),
-('Extensão de Punho', 'Extensão de punho para fortalecer parte posterior do antebraço.','9');
+('Rosca de Punho', '9'),
+('Extensão de Punho', '9');
 
 
+select *from alunos;
+select*from treinos;
+select*from treinos_exercicios;
+select*from alunos_treinos;
