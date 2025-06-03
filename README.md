@@ -101,11 +101,11 @@ ultrafit-academy-system/
 ## 📫 Contato
 
 **Autores:** 
-André Cavalcanti Teles Dos Santos 
-Felipe Casagrande Espel
-Guilherme Diniz Leocadio
-Gustavo Leite Ioels 
-João Marcos Ribeirete Garbelini 
-Vitor Assunção Silva
+- André Cavalcanti Teles Dos Santos 
+- Felipe Casagrande Espel
+- Guilherme Diniz Leocadio
+- Gustavo Leite Ioels 
+- João Marcos Ribeirete Garbelini 
+- Vitor Assunção Silva
 
 
