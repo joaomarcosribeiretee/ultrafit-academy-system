@@ -1,7 +1,7 @@
 # 🏋️ UltraFit Academy System
 
 Sistema web para **professores de academias** gerenciarem alunos, treinos e avaliações físicas de forma prática, moderna e centralizada.  
-Desenvolvido como projeto de conclusão de curso, o sistema visa substituir planilhas e métodos manuais, proporcionando maior organização e eficiência no dia a dia do profissional da área.
+O sistema visa substituir planilhas e métodos manuais, proporcionando maior organização e eficiência no dia a dia do profissional da área.
 
 ---
 
