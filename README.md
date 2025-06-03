@@ -100,12 +100,12 @@ ultrafit-academy-system/
 
 ## 📫 Contato
 
-**Autor:** João Marcos Ribeirete  
-[LinkedIn](https://www.linkedin.com/in/joaomarcosribeirete)  
-[GitHub](https://github.com/joaomarcosribeiretee)
+**Autores:** 
+André Cavalcanti Teles Dos Santos 
+Felipe Casagrande Espel
+Guilherme Diniz Leocadio
+Gustavo Leite Ioels 
+João Marcos Ribeirete Garbelini 
+Vitor Assunção Silva
 
----
 
-## 📄 Licença
-
-Este projeto está licenciado sob a licença MIT.
