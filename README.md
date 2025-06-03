@@ -79,11 +79,11 @@ ultrafit-academy-system/
 ├── backend/
 │   └── src/
 │       ├── db/
-│       │   └── banco.sql
+│       │   └── sistema_academia.sql
 │       ├── routes/
 │       └── server.js
 ├── frontend/
-│   ├── index.html
+│   ├── html
 │   ├── js/
 │   ├── css/
 └── README.md
