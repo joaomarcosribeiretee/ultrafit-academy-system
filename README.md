@@ -5,6 +5,16 @@ O sistema visa substituir planilhas e métodos manuais, proporcionando maior org
 
 ---
 
+## 📥 Clonando o Projeto
+
+```bash
+git clone https://github.com/joaomarcosribeiretee/ultrafit-academy-system.git
+```
+
+Depois, siga os passos abaixo para rodar o backend e o frontend.
+
+---
+
 ## 📌 Funcionalidades
 
 - ✅ Cadastro de alunos com dados pessoais  
@@ -39,7 +49,12 @@ Você precisa ter instalado:
 ### 🗃️ Configuração do Banco de Dados
 
 1. Inicie o MySQL localmente.  
-2. Crie o banco e as tabelas com o script que está em `/backend/src/db/banco.sql`.  
+2. Crie o banco e as tabelas com o script que está em:
+
+```
+/backend/src/db/sistema_academia.sql
+```
+
 3. Verifique as credenciais de acesso no arquivo `server.js` (usuário, senha, nome do banco).
 
 ---
@@ -48,7 +63,7 @@ Você precisa ter instalado:
 
 Abra um terminal e execute:
 
-```
+```bash
 cd backend
 cd src
 node server.js
@@ -62,7 +77,7 @@ A API será iniciada na porta `3001`.
 
 Em outro terminal, execute:
 
-```
+```bash
 cd frontend
 npm install     # (apenas na primeira vez)
 npm start
@@ -83,7 +98,7 @@ ultrafit-academy-system/
 │       ├── routes/
 │       └── server.js
 ├── frontend/
-│   ├── html
+│   ├── html/
 │   ├── js/
 │   ├── css/
 └── README.md
@@ -98,14 +113,11 @@ ultrafit-academy-system/
 
 ---
 
-## 📫 Contato
+## 👥 Autores
 
-**Autores:** 
-- André Cavalcanti Teles Dos Santos 
-- Felipe Casagrande Espel
-- Guilherme Diniz Leocadio
-- Gustavo Leite Ioels 
-- João Marcos Ribeirete Garbelini 
-- Vitor Assunção Silva
-
-
+- André Cavalcanti Teles Dos Santos  
+- Felipe Casagrande Espel  
+- Guilherme Diniz Leocadio  
+- Gustavo Leite Ioels  
+- João Marcos Ribeirete Garbelini  
+- Vitor Assunção Silva  
